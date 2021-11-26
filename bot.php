@@ -3,7 +3,7 @@
 
 ob_start(); 
 //לשים תטוקן של הבוט שלכם
-$API_KEY =  "1634057971:AAGJDnBerl4hwSkH5SpQ9pib2_rOxPVpueM";
+$API_KEY =  "1709546567:AAH2eak8uYXCuEiEShu8qc5c0QfCd9ZVBTg";
 define('API_KEY', $API_KEY);
 function bot($method,$datas=[]){
  $url = "https://api.telegram.org/bot".API_KEY."/".$method; 
@@ -101,8 +101,6 @@ if(curl_error($ch)){
 }else{
     return json_decode($res);
    }
-
-}
 $update = json_decode(file_get_contents('php://input'));
 $message = $update->message;
 $text = $message->text;
@@ -114,14 +112,13 @@ $data = $update->callback_query->data;
 $chat_id2 = $update->callback_query->message->chat->id;
 $message_id = $update->callback_query->message->message_id;
 
-elseif($text == '/start'){
+if($text == '/start'){
 file_put_contents("data/$chat_id/ali.txt", "esm");
 bot('sendMessage',[
  'chat_id'=>$chat_id,
  'text'=>"⬇️לרשימת קבוצות הווצאפ שלנו⬇️",
  'reply_markup'=>json_encode([
       'inline_keyboard'=>[
-        [
 [
 ['text'=>' לחץ/י כאן', 'callback_data'=>"home"]
         ],
@@ -183,7 +180,9 @@ https://chat.whatsapp.com/EoElVzKAe11KXxRbCEWltQ
 ערוץ - 〽️ה שמ➰ניין 9️⃣
 https://chat.whatsapp.com/IMCmicCh2uQ7aYAmlM2NKC
 ערוץ - 〽️ה שמ➰ניין 🔟
-https://chat.whatsapp.com/D3uMpFviijNCJuBv04NufC  ",
+https://chat.whatsapp.com/D3uMpFviijNCJuBv04NufC
+
+*אין להצטרף ליותר מערוץ אחד ברשימה זו!*",
 'reply_markup'=>json_encode([
       'inline_keyboard'=>[
        [
@@ -194,8 +193,78 @@ https://chat.whatsapp.com/D3uMpFviijNCJuBv04NufC  ",
 ]);
 }
 
+if($data == "B"){
+bot('editMessageText',[
+'chat_id'=>$chat_id2,
+'message_id'=>$message_id,
+'text'=>"*עבודות איכות - בכל הארץ*
+בקבוצות נשלחים עבודות מומלצות מכל הארץ ויש לכם סיכוי גבוה למצוא בקבוצה עבודה שתתאים לכם
 
-    
+עבודות איכות 1️⃣
+https://chat.whatsapp.com/G5lXigoIFxP1kCn7jEunW1
+עבודות איכות 2️⃣
+https://chat.whatsapp.com/KIgm78DCTNkBE8aSCUtl6p
+עבודות איכות 3️⃣
+https://chat.whatsapp.com/GjibtdlgfFf23rZrILGgZu
+עבודות איכות 4️⃣
+https://chat.whatsapp.com/FJk1nqsRjmFBkEdcuFV9yY
+עבודות איכות 5️⃣
+https://chat.whatsapp.com/JzYMWQl49ZF2yMtcVBOxky
+עבודות איכות 6️⃣
+https://chat.whatsapp.com/JZQXNJdpglqIqkxgNjZS24
+עבודות איכות7️⃣
+https://chat.whatsapp.com/LJakBnm31Xj4Mw2wRfvh5S
+עבודות איכות8️⃣
+https://chat.whatsapp.com/FTGTbEQMlF7AweE49Mb6F0
+
+*אין להצטרף ליותר מערוץ אחד ברשימה זו!*",
+'reply_markup'=>json_encode([
+      'inline_keyboard'=>[
+       [
+                     ['text'=>"חזור",'callback_data'=>"home"]
+],       
+]        
+])
+]);
+}
+if($data == "C"){
+bot('editMessageText',[
+'chat_id'=>$chat_id2,
+'message_id'=>$message_id,
+'text'=>"*מה שמעניין - חדשות*
+〽️ה שמ➰ניין - חדשות🎙️1️⃣
+https://chat.whatsapp.com/Bo0iKaagk4ZKpjIEAun4pN
+〽️ה שמ➰ניין - חדשות🎙️2️⃣
+https://chat.whatsapp.com/Hd5b3ekMgmB5Jb7rMzoYrJ
+〽️ה שמ➰ניין - חדשות🎙️3️⃣
+https://chat.whatsapp.com/DUwaLOblYBw0iNtpw0lidC
+〽️ה שמ➰ניין - חדשות🎙️4️⃣
+https://chat.whatsapp.com/J5bHeXMgw4N9gekr1fqu1T",
+'reply_markup'=>json_encode([
+      'inline_keyboard'=>[
+       [
+                     ['text'=>"חזור",'callback_data'=>"home"]
+],       
+]        
+])
+]);
+}     
+if($data == "D"){
+bot('editMessageText',[
+'chat_id'=>$chat_id2,
+'message_id'=>$message_id,
+'text'=>"עיתונים
+https://chat.whatsapp.com/JgFKB7Qwl3G1kQkWU6XPTF",
+'reply_markup'=>json_encode([
+      'inline_keyboard'=>[
+       [
+                     ['text'=>"חזור",'callback_data'=>"home"]
+],       
+]        
+])
+]);
+} 
+  
     
 if (isset ($update->message->new_chat_member )) {
 bot('deleteMessage',[
