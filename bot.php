@@ -99,7 +99,18 @@ bot('editMessageText',[
 ]);
 }
 
-
+if (isset ($update->message->new_chat_member )) {
+bot('deleteMessage',[
+'chat_id'=>$chat_id,
+'message_id'=>$mid
+]);
+}
+if (isset ($update->message->left_chat_member )) {
+bot('deleteMessage',[
+'chat_id'=>$chat_id,
+'message_id'=>$mid
+]);
+}
 
 
 
