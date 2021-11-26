@@ -53,48 +53,7 @@ bot("answerCallbackQuery",[
 }
 
 
-
-
-
-
-
-
-
-if($text == "/start"){
-bot('sendmessage', [
-'chat_id' => $chat_id,
-'text' => "היי $name
- 
- השתמשו בלחצנים למטה⬇️
- 
- מתחברים לקבוצה?
- שימו לב לשמור על הכללים
- (נמצא בהודעה מוצמדת בקבוצה)",
-'reply_to_message_id'=>$message_id,
-'parse_mode' => "MarkDown",
-'reply_markup'=>json_encode([
-      'inline_keyboard'=>[
-        [
-['text'=>'📢 לחצו עלי כדי להתחבר לערוץ 📢', 'url'=>"$Grup"],
-         ],
-        [
-['text'=>'👥 לחצו עלי כדי להתחבר לקבוצה 👥', 'url'=>"$Grup2"],
-         ],
-            [
-['text'=>'📢🗞️ לחצו עלי כדי להתחבר לערוץ העיתונים 🗞️📢', 'url'=>"https://t.me/Newspapers_Israel"],
-         ],
-[
-['text'=>'👨‍💼 לפניה למנהלים 👨‍💼' , 'url'=>"$Grup3"],
-         ],
-[
-['text'=>'פרטי הבוט' , 'callback_data'=>"on"],
-         ], 
-]
-])
-]);
-}
-
-elseif($text == '/start'){
+if($text == '/start'){
 file_put_contents("data/$chat_id/ali.txt", "esm");
 bot('sendMessage',[
  'chat_id'=>$chat_id,
@@ -139,6 +98,47 @@ bot('editMessageText',[
 ])
 ]);
 }
+
+
+
+
+
+
+if($text == "/start"){
+bot('sendmessage', [
+'chat_id' => $chat_id,
+'text' => "היי $name
+ 
+ השתמשו בלחצנים למטה⬇️
+ 
+ מתחברים לקבוצה?
+ שימו לב לשמור על הכללים
+ (נמצא בהודעה מוצמדת בקבוצה)",
+'reply_to_message_id'=>$message_id,
+'parse_mode' => "MarkDown",
+'reply_markup'=>json_encode([
+      'inline_keyboard'=>[
+        [
+['text'=>'📢 לחצו עלי כדי להתחבר לערוץ 📢', 'url'=>"$Grup"],
+         ],
+        [
+['text'=>'👥 לחצו עלי כדי להתחבר לקבוצה 👥', 'url'=>"$Grup2"],
+         ],
+            [
+['text'=>'📢🗞️ לחצו עלי כדי להתחבר לערוץ העיתונים 🗞️📢', 'url'=>"https://t.me/Newspapers_Israel"],
+         ],
+[
+['text'=>'👨‍💼 לפניה למנהלים 👨‍💼' , 'url'=>"$Grup3"],
+         ],
+[
+['text'=>'פרטי הבוט' , 'callback_data'=>"on"],
+         ], 
+]
+])
+]);
+}
+
+
 
 
 $id = $message->from->id;
@@ -208,7 +208,7 @@ if($bcpv == "bc" && $chat_id == $admin){
    
 
 
-if($message){
+if($text && $text != "/start"){
 bot('sendmessage', [
 'chat_id' => $chat_id,
 'text' => "*שגיאה*❗
