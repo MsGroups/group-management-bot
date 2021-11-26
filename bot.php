@@ -52,6 +52,73 @@ bot("answerCallbackQuery",[
 ]);
 }
 
+$update = json_decode(file_get_contents('php://input'));
+$message = $update->message;
+$text = $message->text;
+$chat_id = $message->chat->id;
+$id = $message->from->id;
+$admin ="594373881";
+
+
+if($text == '/start'){
+$user = file_get_contents('users.doc');
+$members = explode("\n", $user);
+if (!in_array($id, $members)) {
+$add_user = file_get_contents('users.doc');
+$add_user .= $id."\n";
+$step = file_get_contents("data/".$id."/step.doc");
+file_put_contents("data/$chat_id/membrs.doc", "0");
+file_put_contents('users.doc', $add_user);}
+file_put_contents("data/$chat_id/arash.doc", "no");
+bot('sendmessage',[
+'chat_id'=>$chat_id,
+'text'=>"
+שלום לך  👋 
+",
+'parse_mode' => 'Markdown',
+'reply_to_message_id'=>$message->message_id
+    ]);
+}
+//הפקודה /משתמשים מציגה את מספר המשתמשים 
+ elseif ($text == "/משתמשים" and $id==$admin) {
+        $user = file_get_contents("users.doc");
+        $member_id = explode("\n", $user);
+        $member_count = count($member_id) - 1;
+bot('sendmessage', [
+'chat_id'=>$chat_id,
+'text' => "סה'כ משתמשים :* $member_count*",
+'parse_mode' => "MarkDown",
+        ]);
+    }
+
+$bcpv = file_get_contents("bcpv.doc");
+if($text == "הודעה למשתמשים" and $chat_id ==$admin){
+    file_put_contents("bcpv.doc","bc");
+ bot('sendmessage',[
+    'chat_id'=>$admin,
+    'text'=>"עכשיו שלח לי תטקסט שלך",
+    'parse_mode' => 'Markdown',
+  ]);
+}
+if($bcpv == "bc" && $chat_id == $admin){
+    file_put_contents("bcpv.doc","none");
+ bot('sendmessage',[
+    'chat_id'=>$chat_id,
+    'text'=>"ההודעה שלך נשלחה בהצלחה לכל המשתמשים!",
+  ]);
+ $all_member = fopen( "users.doc", "r");
+  while( !feof( $all_member)) {
+    $user = fgets( $all_member);
+   bot('sendmessage',[
+'chat_id'=>$user,
+'text'=>$text,
+'parse_mode' => 'Markdown',
+'disable_web_page_preview' => true,
+]);
+  }
+}
+
+
 
 
 if($text == "/start"){
@@ -145,14 +212,23 @@ bot('editMessageText',[
 'text'=>"*ערוצי מה שמעניין* - בהם נשלחים תוכן מעניין כגון מוזיקה חדשה, עיתונים, סדרות לפי בחירת חברי הקבוצה, סרטונים מעניינים/מצחיקים וכו'
 
 [ערוץ 〽️ה שמ➰ניין 1️⃣](https://chat.whatsapp.com/HkkPUhyBf0K4bmGPSRjCn9)
+
 [ערוץ 〽️ה שמ➰ניין 2️⃣](https://chat.whatsapp.com/LAUsNGMQizCFKIiJb5ZmaN)
+
 [ערוץ 〽️ה שמ➰ניין 3️⃣](https://chat.whatsapp.com/ITe4pIzT3SRFGymsjrf4ok)
+
 [ערוץ 〽️ה שמ➰ניין 4️⃣](https://chat.whatsapp.com/GzSM0UjDUipCXjfEIe6LEy)
+
 [ערוץ 〽️ה שמ➰ניין 5️⃣](https://chat.whatsapp.com/H8v4UMxDtUSIYM9kZsrfVr)
+
 [ערוץ 〽️ה שמ➰ניין 6️⃣](https://chat.whatsapp.com/IIKB2ZUOqnC5NTrW0tfRZh)
+
 [ערוץ 〽️ה שמ➰ניין 7️⃣](https://chat.whatsapp.com/HsSfrXsZJYl84kOMiQO9XR)
+
 [ערוץ - 〽️ה שמ➰ניין 8️⃣](https://chat.whatsapp.com/EoElVzKAe11KXxRbCEWltQ)
+
 [ערוץ - 〽️ה שמ➰ניין 9️⃣](https://chat.whatsapp.com/IMCmicCh2uQ7aYAmlM2NKC)
+
 [ערוץ - 〽️ה שמ➰ניין 🔟](https://chat.whatsapp.com/D3uMpFviijNCJuBv04NufC)
 
 *אין להצטרף ליותר מערוץ אחד ברשימה זו!*",
@@ -161,7 +237,7 @@ bot('editMessageText',[
 'reply_markup'=>json_encode([
       'inline_keyboard'=>[
        [
-                     ['text'=>"חזור",'callback_data'=>"home"]
+                     ['text'=>"חזור לרשימת הקבוצות",'callback_data'=>"home"]
 ],       
 ]        
 ])
@@ -176,12 +252,19 @@ bot('editMessageText',[
 בקבוצות נשלחים עבודות מומלצות מכל הארץ ויש לכם סיכוי גבוה למצוא בקבוצה עבודה שתתאים לכם
 
 [עבודות איכות 1️⃣](https://chat.whatsapp.com/G5lXigoIFxP1kCn7jEunW1)
+
 [עבודות איכות 2️⃣](https://chat.whatsapp.com/KIgm78DCTNkBE8aSCUtl6p)
+
 [עבודות איכות 3️⃣](https://chat.whatsapp.com/GjibtdlgfFf23rZrILGgZu)
+
 [עבודות איכות 4️⃣](https://chat.whatsapp.com/FJk1nqsRjmFBkEdcuFV9yY)
+
 [עבודות איכות 5️⃣](https://chat.whatsapp.com/JzYMWQl49ZF2yMtcVBOxky)
+
 [עבודות איכות 6️⃣](https://chat.whatsapp.com/JZQXNJdpglqIqkxgNjZS24)
+
 [עבודות איכות7️⃣](https://chat.whatsapp.com/LJakBnm31Xj4Mw2wRfvh5S)
+
 [עבודות איכות8️⃣](https://chat.whatsapp.com/FTGTbEQMlF7AweE49Mb6F0)
 
 *אין להצטרף ליותר מערוץ אחד ברשימה זו!*",
@@ -190,7 +273,7 @@ bot('editMessageText',[
 'reply_markup'=>json_encode([
       'inline_keyboard'=>[
        [
-                     ['text'=>"חזור",'callback_data'=>"home"]
+                     ['text'=>" חזור לרשימת הקבוצות",'callback_data'=>"home"]
 ],       
 ]        
 ])
@@ -215,7 +298,7 @@ bot('editMessageText',[
 'reply_markup'=>json_encode([
       'inline_keyboard'=>[
        [
-                     ['text'=>"חזור",'callback_data'=>"home"]
+                     ['text'=>"חזור לרשימת הקבוצות",'callback_data'=>"home"]
 ],       
 ]        
 ])
@@ -231,7 +314,7 @@ bot('editMessageText',[
 'reply_markup'=>json_encode([
       'inline_keyboard'=>[
        [
-                     ['text'=>"חזור",'callback_data'=>"home"]
+                     ['text'=>"חזור לרשימת הקבוצות",'callback_data'=>"home"]
 ],       
 ]        
 ])
@@ -251,79 +334,6 @@ bot('deleteMessage',[
 'message_id'=>$mid
 ]);
 }
-
-
-$update = json_decode(file_get_contents('php://input'));
-$message = $update->message;
-$text = $message->text;
-$chat_id = $message->chat->id;
-$id = $message->from->id;
-$admin ="594373881";
-
-
-if($text == '/start'){
-$user = file_get_contents('users.doc');
-$members = explode("\n", $user);
-if (!in_array($id, $members)) {
-$add_user = file_get_contents('users.doc');
-$add_user .= $id."\n";
-$step = file_get_contents("data/".$id."/step.doc");
-file_put_contents("data/$chat_id/membrs.doc", "0");
-file_put_contents('users.doc', $add_user);}
-file_put_contents("data/$chat_id/arash.doc", "no");
-bot('sendmessage',[
-'chat_id'=>$chat_id,
-'text'=>"
-שלום לך  👋 
-",
-'parse_mode' => 'Markdown',
-'reply_to_message_id'=>$message->message_id
-    ]);
-}
-//הפקודה /משתמשים מציגה את מספר המשתמשים 
- elseif ($text == "/משתמשים" and $id==$admin) {
-        $user = file_get_contents("users.doc");
-        $member_id = explode("\n", $user);
-        $member_count = count($member_id) - 1;
-bot('sendmessage', [
-'chat_id'=>$chat_id,
-'text' => "סה'כ משתמשים :* $member_count*",
-'parse_mode' => "MarkDown",
-        ]);
-    }
-
-$bcpv = file_get_contents("bcpv.doc");
-if($text == "הודעה למשתמשים" and $chat_id ==$admin){
-    file_put_contents("bcpv.doc","bc");
- bot('sendmessage',[
-    'chat_id'=>$admin,
-    'text'=>"עכשיו שלח לי תטקסט שלך",
-    'parse_mode' => 'Markdown',
-  ]);
-}
-if($bcpv == "bc" && $chat_id == $admin){
-    file_put_contents("bcpv.doc","none");
- bot('sendmessage',[
-    'chat_id'=>$chat_id,
-    'text'=>"ההודעה שלך נשלחה בהצלחה לכל המשתמשים!",
-  ]);
- $all_member = fopen( "users.doc", "r");
-  while( !feof( $all_member)) {
-    $user = fgets( $all_member);
-   bot('sendmessage',[
-'chat_id'=>$user,
-'text'=>$text,
-'parse_mode' => 'Markdown',
-'disable_web_page_preview' => true,
-]);
-  }
-}
-
-
-
-
-
-
     
  if(preg_match('/start/',$text)){
 bot('deleteMessage',[
@@ -354,6 +364,46 @@ bot('sendmessage', [
 ]);
 }
 
+
+if($text && $text != "הודעה למשתמשים"){
+bot('sendmessage', [
+'chat_id' => $chat_id,
+'text' => "
+זהו בוט הצטרפות לקבוצות מבית *מה שמעניין* בלבד
+אם קיבלתם הודעה זו ככל הנראה ששלחתם בקשה שאינה קיימת בבוט
+
+או שלח/י שוב /start",
+'reply_to_message_id'=>$message_id,
+'parse_mode' => "MarkDown",
+'reply_markup'=>json_encode([
+      'inline_keyboard'=>[
+[
+['text'=>'👨‍💼 לפניה למנהלים 👨‍💼' , 'url'=>"$Grup3"],
+         ],
+]
+])
+]);
+}
+
+if($text && $text != "/משתמשים"){
+bot('sendmessage', [
+'chat_id' => $chat_id,
+'text' => "
+זהו בוט הצטרפות לקבוצות מבית *מה שמעניין* בלבד
+אם קיבלתם הודעה זו ככל הנראה ששלחתם בקשה שאינה קיימת בבוט
+
+או שלח/י שוב /start",
+'reply_to_message_id'=>$message_id,
+'parse_mode' => "MarkDown",
+'reply_markup'=>json_encode([
+      'inline_keyboard'=>[
+[
+['text'=>'👨‍💼 לפניה למנהלים 👨‍💼' , 'url'=>"$Grup3"],
+         ],
+]
+])
+]);
+}
 
     
 
