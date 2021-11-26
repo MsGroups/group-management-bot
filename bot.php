@@ -1,74 +1,187 @@
-<?php
-
-/*
-شما میتوانید سورس کد خود را در این فایل قرار داده و محتویات این اسکریپت را حذف نمایید
-*/
-
-//دریافت تمامی ورودی ها
-$var = file_get_contents("php://input");
-//تبدیل ورودی ها به آرایه
-$var = json_decode($var,true);
-//دریافت شناسه چت
-$chat_id = $var['message']['chat']['id'];
-//دریافت پیام ارسال شده توسط کاربر
-$text = $var['message']['text'];
-//تعریف توکن ربات
-$token = "1709546567:AAH2eak8uYXCuEiEShu8qc5c0QfCd9ZVBTg"; // توکن را وارد نمایید
+<?php 
 
 
-//این تابع یک پیام ساده ارسال میکند
-function sendMessage($chat_id,$text)
-{
-	global $token;
-    $api    = "https://api.telegram.org/bot$token/";
-    $method = "sendMessage";
-    $params = "?chat_id=$chat_id&text=" . urlencode($text);
-  
-  	$url = $api . $method . $params;
-    $result = file_get_contents($url);
-  	return $result;
+ob_start(); 
+//לשים תטוקן של הבוט שלכם
+$API_KEY =  "1634057971:AAGJDnBerl4hwSkH5SpQ9pib2_rOxPVpueM";
+define('API_KEY', $API_KEY);
+function bot($method,$datas=[]){
+ $url = "https://api.telegram.org/bot".API_KEY."/".$method; 
+$ch = curl_init();
+curl_setopt($ch,CURLOPT_URL,$url);
+curl_setopt($ch,CURLOPT_RETURNTRANSFER,true);
+curl_setopt($ch,CURLOPT_POSTFIELDS,$datas);
+$res = curl_exec($ch);
+if(curl_error($ch)){
+    var_dump(curl_error($ch));
+}else{
+    return json_decode($res);
+   }
+
 }
-//این تابع یک پیام به همراه کیبورد ساده ارسال میکند
-function sendMessageWithKeyboard($chat_id,$text,$reply_markup)
-{
-	global $token;
-    $api    = "https://api.telegram.org/bot$token/";
-    $method = "sendMessage";
-    $params = "?chat_id=$chat_id&text=" . urlencode($text);
-    $params .= "&reply_markup=" . json_encode($reply_markup);
-  
-  	$url = $api . $method . $params;
-    $result = file_get_contents($url);
-  	return $result;
+$update = json_decode(file_get_contents('php://input'));
+$message = $update->message;
+$text = $message->text;
+$chat_id = $message->chat->id;
+$mid = $message->message_id;
+$name = $message->from->first_name;
+$iid = $message->from->id;
+$data = $update->callback_query->data;
+$chat_id2 = $update->callback_query->message->chat->id;
+$message_id = $update->callback_query->message->message_id;
+$member = file_get_contents("data/$from_id/member.txt");
+$number = file_get_contents("data/$from_id/number.txt");
+$message_id = $update->message->message_id;
+$callID = $update->callback_query->id;
+//קישור לערוץ
+$Grup = "https://t.me/joinchat/T2-OVTCnadgUAl1i";
+//קישור לקבוצה
+$Grup2 = "https://t.me/joinchat/O8DjIDRlrR5mZGNk";
+//קישור ליצרת קשר
+$Grup3 = "http://t.me/Ma_semeyanen_bot";
+
+
+
+if($data == "on"){
+bot("answerCallbackQuery",[
+"callback_query_id"=>$callID,
+//אם אפשר רק להשאיר תקרדיט 
+//אפשר להוסיף גם את שלכם תודה.
+'text'=>"בוט זה נוצר על ידי מנהלי מה שמעניין",
+  'show_alert' => true,
+]);
 }
-//تعریف  دکمه های کیبورد
-$keyboard_button = array( ['Button 1','Button 2'] );
-//تعریف کیبورد
-$keyboard = array(
-	'keyboard'			=>	$keyboard_button,
-	'resize_keyboard'	=>	true,
-);
-/*
-اگر پیام دریافتی از کاربر برابر :
-/start
-باشد، این خروجی داده خواهد شد
-*/
-if ( $text == '/start' ) 
-{
-	$message = "Hi There, Welcome...";
-	echo sendMessageWithKeyboard($chat_id,$message,$keyboard);
+
+
+
+if($text == "/start"){
+bot('sendmessage', [
+'chat_id' => $chat_id,
+'text' => "היי $name
+ 
+ השתמשו בלחצנים למטה⬇️
+ 
+ מתחברים לקבוצה?
+ שימו לב לשמור על הכללים
+ (נמצא בהודעה מוצמדת בקבוצה)",
+'reply_to_message_id'=>$message_id,
+'parse_mode' => "MarkDown",
+'reply_markup'=>json_encode([
+      'inline_keyboard'=>[
+        [
+['text'=>'📢 לחצו עלי כדי להתחבר לערוץ 📢', 'url'=>"$Grup"],
+         ],
+        [
+['text'=>'👥 לחצו עלי כדי להתחבר לקבוצה 👥', 'url'=>"$Grup2"],
+         ],
+            [
+['text'=>'📢🗞️ לחצו עלי כדי להתחבר לערוץ העיתונים 🗞️📢', 'url'=>"https://t.me/Newspapers_Israel"],
+         ],
+[
+['text'=>'👨‍💼 לפניה למנהלים 👨‍💼' , 'url'=>"$Grup3"],
+         ],
+[
+['text'=>'פרטי הבוט' , 'callback_data'=>"on"],
+         ], 
+]
+])
+]);
 }
-//اگر دکمه شماره 1 فشرده شود
-if ( $text == 'Button 1' ) 
-{
-	$message = "Result From Button 1";
-	echo sendMessage($chat_id,$message);
+
+
+
+
+$id = $message->from->id;
+$admin ="594373881";
+
+if($text == '/start' and $id==$admin){
+$user = file_get_contents('users.doc');
+$members = explode("\n", $user);
+if (!in_array($id, $members)) {
+$add_user = file_get_contents('users.doc');
+$add_user .= $id."\n";
+$step = file_get_contents("data/".$id."/step.doc");
+file_put_contents("data/$chat_id/membrs.doc", "0");
+file_put_contents('users.doc', $add_user);}
+file_put_contents("data/$chat_id/arash.doc", "no");
+
+bot('sendmessage',[
+'chat_id'=>$chat_id,
+'text'=>"
+שלום לך  👋 
+",
+'parse_mode' => 'Markdown',
+'reply_to_message_id'=>$message->message_id
+    ]);
 }
-//اگر دکمه شماره 2 فشرده شود
-if ( $text == 'Button 2' ) 
-{
-	$message = "Result From Button 2";
-	sendMessage($chat_id,$message);
+
+
+//הפקודה /משתמשים מציגה את מספר המשתמשים 
+ elseif ($text == "/משתמשים" and $id==$admin) {
+        $user = file_get_contents("users.doc");
+        $member_id = explode("\n", $user);
+        $member_count = count($member_id) - 1;
+bot('sendmessage', [
+'chat_id'=>$chat_id,
+'text' => "סה'כ משתמשים :* $member_count*",
+'parse_mode' => "MarkDown",
+        ]);
+    }
+    
+$bcpv = file_get_contents("bcpv.doc");
+if($text == "הודעה למשתמשים" and $chat_id ==$admin){
+    file_put_contents("bcpv.doc","bc");
+ bot('sendmessage',[
+    'chat_id'=>$admin,
+    'text'=>"עכשיו שלח לי תטקסט שלך",
+    'parse_mode' => 'Markdown',
+  ]);
 }
+if($bcpv == "bc" && $chat_id == $admin){
+    file_put_contents("bcpv.doc","none");
+ bot('sendmessage',[
+    'chat_id'=>$chat_id,
+    'text'=>"ההודעה שלך נשלחה בהצלחה לכל המשתמשים!",
+  ]);
+ $all_member = fopen( "users.doc", "r");
+  while( !feof( $all_member)) {
+    $user = fgets( $all_member);
+   bot('sendmessage',[
+'chat_id'=>$user,
+'text'=>$text,
+'parse_mode' => 'Markdown',
+'disable_web_page_preview' => true,
+]);
+  }
+}    
+    
+ if(preg_match('/start/',$text)){
+bot('deleteMessage',[
+'chat_id'=>$chat_id,
+'message_id'=>$mid
+]);
+}
+   
+
+
+if($message){
+bot('sendmessage', [
+'chat_id' => $chat_id,
+'text' => "*שגיאה*❗
+לא הבנתי את הבקשה.
+
+לפניה למנהלים יש לפנות באמצעות בוט מנהלים
+או שלח/י /start",
+'reply_to_message_id'=>$message_id,
+'parse_mode' => "MarkDown",
+'reply_markup'=>json_encode([
+      'inline_keyboard'=>[
+[
+['text'=>'👨‍💼 לפניה למנהלים 👨‍💼' , 'url'=>"$Grup3"],
+         ],
+]
+])
+]);
+}    
 
 ?>
