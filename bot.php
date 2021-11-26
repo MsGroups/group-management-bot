@@ -70,7 +70,7 @@ bot('sendmessage',[
 ])
 ]);
 }
-elseif($text == '/start'){
+elseif($text == '/sss'){
 file_put_contents("data/$chat_id/ali.txt", "esm");
 bot('sendMessage',[
  'chat_id'=>$chat_id,
