@@ -94,7 +94,51 @@ bot('sendmessage', [
 ]);
 }
 
+elseif($text == '/start'){
+file_put_contents("data/$chat_id/ali.txt", "esm");
+bot('sendMessage',[
+ 'chat_id'=>$chat_id,
+ 'text'=>"לחץ למטה כע למטה הלוווו כע ",
+ 'reply_markup'=>json_encode([
+      'inline_keyboard'=>[
+        [
+['text'=>'לחץ כאן', 'url'=>"https://t.me/elazar12_apk"],
+         ],
+[
+['text'=>'מקלדת צפה', 'callback_data'=>"home"]
+        ],
+      
+]
+])
+]);
+}
 
+if($data == "home"){
+bot('editMessageText',[
+'chat_id'=>$chat_id2,
+'message_id'=>$message_id,
+'text'=>"אהלן לך תיראה מה הולך כאן למטה יאוווו  ",
+'reply_markup'=>json_encode([
+      'inline_keyboard'=>[
+        [
+              ['text'=>"כפתור 1",'callback_data'=>"A"]
+              ],
+              [
+              ['text'=>"כפתור 2",'callback_data'=>"B"]
+],
+[
+              ['text'=>"כפתור 3",'callback_data'=>"C"]
+],
+      
+       [
+              ['text'=>"כפתור 4",'callback_data'=>"D"]
+],
+       
+]
+        
+])
+]);
+}
 
 
 $id = $message->from->id;
@@ -160,13 +204,7 @@ if($bcpv == "bc" && $chat_id == $admin){
 ]);
   }
 }    
-    
- if(preg_match('/start/',$text)){
-bot('deleteMessage',[
-'chat_id'=>$chat_id,
-'message_id'=>$mid
-]);
-}
+ 
    
 
 
