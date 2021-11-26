@@ -215,17 +215,13 @@ bot('editMessageText',[
 'chat_id'=>$chat_id2,
 'message_id'=>$message_id,
 'text'=>"*מה שמעניין - חדשות*
-[〽️ה שמ➰ניין - חדשות🎙️1️⃣]
-(https://chat.whatsapp.com/Bo0iKaagk4ZKpjIEAun4pN)
+[〽️ה שמ➰ניין - חדשות🎙️1️⃣](https://chat.whatsapp.com/Bo0iKaagk4ZKpjIEAun4pN)
 
-[〽️ה שמ➰ניין - חדשות🎙️2️⃣]
-(https://chat.whatsapp.com/Hd5b3ekMgmB5Jb7rMzoYrJ)
+[〽️ה שמ➰ניין - חדשות🎙️2️⃣](https://chat.whatsapp.com/Hd5b3ekMgmB5Jb7rMzoYrJ)
 
-[〽️ה שמ➰ניין - חדשות🎙️3️⃣]
-(https://chat.whatsapp.com/DUwaLOblYBw0iNtpw0lidC)
+[〽️ה שמ➰ניין - חדשות🎙️3️⃣](https://chat.whatsapp.com/DUwaLOblYBw0iNtpw0lidC)
 
-[〽️ה שמ➰ניין - חדשות🎙️4️⃣]
-(https://chat.whatsapp.com/J5bHeXMgw4N9gekr1fqu1T)
+[〽️ה שמ➰ניין - חדשות🎙️4️⃣](https://chat.whatsapp.com/J5bHeXMgw4N9gekr1fqu1T)
 
 *אין להצטרף ליותר מערוץ אחד ברשימה זו!*",
 'reply_markup'=>json_encode([
