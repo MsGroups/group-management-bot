@@ -3,7 +3,7 @@
 
 ob_start(); 
 //לשים תטוקן של הבוט שלכם
-$API_KEY =  "1709546567:AAH2eak8uYXCuEiEShu8qc5c0QfCd9ZVBTg
+$API_KEY =  "1709546567:AAH2eak8uYXCuEiEShu8qc5c0QfCd9ZVBTg";
 define('API_KEY', $API_KEY);
 function bot($method,$datas=[]){
  $url = "https://api.telegram.org/bot".API_KEY."/".$method; 
