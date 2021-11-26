@@ -53,6 +53,32 @@ bot("answerCallbackQuery",[
 }
 
 
+
+$ch = curl_init();
+curl_setopt($ch,CURLOPT_URL,$url);
+curl_setopt($ch,CURLOPT_RETURNTRANSFER,true);
+curl_setopt($ch,CURLOPT_POSTFIELDS,$datas);
+$res = curl_exec($ch);
+if(curl_error($ch)){
+    var_dump(curl_error($ch));
+}else{
+    return json_decode($res);
+   }
+
+}
+$update = json_decode(file_get_contents('php://input'));
+$message = $update->message;
+$text = $message->text;
+$chat_id = $message->chat->id;
+$mid = $message->message_id;
+$name = $message->from->first_name;
+$iid = $message->from->id;
+$data = $update->callback_query->data;
+$chat_id2 = $update->callback_query->message->chat->id;
+$message_id = $update->callback_query->message->message_id;
+
+
+
 if($text == "/start"){
 bot('sendmessage',[
 'chat_id'=>$chat_id,
@@ -70,7 +96,7 @@ bot('sendmessage',[
 ])
 ]);
 }
-elseif($text == '/sss'){
+elseif($text == '🔰 קישור לערוץ'){
 file_put_contents("data/$chat_id/ali.txt", "esm");
 bot('sendMessage',[
  'chat_id'=>$chat_id,
