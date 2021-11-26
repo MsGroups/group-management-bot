@@ -144,26 +144,16 @@ bot('editMessageText',[
 'message_id'=>$message_id,
 'text'=>"*ערוצי מה שמעניין* - בהם נשלחים תוכן מעניין כגון מוזיקה חדשה, עיתונים, סדרות לפי בחירת חברי הקבוצה, סרטונים מעניינים/מצחיקים וכו'
 
-ערוץ 〽️ה שמ➰ניין 1️⃣
-https://chat.whatsapp.com/HkkPUhyBf0K4bmGPSRjCn9
-ערוץ 〽️ה שמ➰ניין 2️⃣
-https://chat.whatsapp.com/LAUsNGMQizCFKIiJb5ZmaN
-ערוץ 〽️ה שמ➰ניין 3️⃣
-https://chat.whatsapp.com/ITe4pIzT3SRFGymsjrf4ok
-ערוץ 〽️ה שמ➰ניין 4️⃣
-https://chat.whatsapp.com/GzSM0UjDUipCXjfEIe6LEy
-ערוץ 〽️ה שמ➰ניין 5️⃣
-https://chat.whatsapp.com/H8v4UMxDtUSIYM9kZsrfVr
-ערוץ 〽️ה שמ➰ניין 6️⃣
-https://chat.whatsapp.com/IIKB2ZUOqnC5NTrW0tfRZh
-ערוץ 〽️ה שמ➰ניין 7️⃣
-https://chat.whatsapp.com/HsSfrXsZJYl84kOMiQO9XR
-ערוץ - 〽️ה שמ➰ניין 8️⃣
-https://chat.whatsapp.com/EoElVzKAe11KXxRbCEWltQ
-ערוץ - 〽️ה שמ➰ניין 9️⃣
-https://chat.whatsapp.com/IMCmicCh2uQ7aYAmlM2NKC
-ערוץ - 〽️ה שמ➰ניין 🔟
-https://chat.whatsapp.com/D3uMpFviijNCJuBv04NufC
+[ערוץ 〽️ה שמ➰ניין 1️⃣](https://chat.whatsapp.com/HkkPUhyBf0K4bmGPSRjCn9)
+[ערוץ 〽️ה שמ➰ניין 2️⃣](https://chat.whatsapp.com/LAUsNGMQizCFKIiJb5ZmaN)
+[ערוץ 〽️ה שמ➰ניין 3️⃣](https://chat.whatsapp.com/ITe4pIzT3SRFGymsjrf4ok)
+[ערוץ 〽️ה שמ➰ניין 4️⃣](https://chat.whatsapp.com/GzSM0UjDUipCXjfEIe6LEy)
+[ערוץ 〽️ה שמ➰ניין 5️⃣](https://chat.whatsapp.com/H8v4UMxDtUSIYM9kZsrfVr)
+[ערוץ 〽️ה שמ➰ניין 6️⃣](https://chat.whatsapp.com/IIKB2ZUOqnC5NTrW0tfRZh)
+[ערוץ 〽️ה שמ➰ניין 7️⃣](https://chat.whatsapp.com/HsSfrXsZJYl84kOMiQO9XR)
+[ערוץ - 〽️ה שמ➰ניין 8️⃣](https://chat.whatsapp.com/EoElVzKAe11KXxRbCEWltQ)
+[ערוץ - 〽️ה שמ➰ניין 9️⃣](https://chat.whatsapp.com/IMCmicCh2uQ7aYAmlM2NKC)
+[ערוץ - 〽️ה שמ➰ניין 🔟](https://chat.whatsapp.com/D3uMpFviijNCJuBv04NufC)
 
 *אין להצטרף ליותר מערוץ אחד ברשימה זו!*",
 'parse_mode' => 'Markdown',
@@ -185,22 +175,14 @@ bot('editMessageText',[
 'text'=>"*עבודות איכות - בכל הארץ*
 בקבוצות נשלחים עבודות מומלצות מכל הארץ ויש לכם סיכוי גבוה למצוא בקבוצה עבודה שתתאים לכם
 
-עבודות איכות 1️⃣
-https://chat.whatsapp.com/G5lXigoIFxP1kCn7jEunW1
-עבודות איכות 2️⃣
-https://chat.whatsapp.com/KIgm78DCTNkBE8aSCUtl6p
-עבודות איכות 3️⃣
-https://chat.whatsapp.com/GjibtdlgfFf23rZrILGgZu
-עבודות איכות 4️⃣
-https://chat.whatsapp.com/FJk1nqsRjmFBkEdcuFV9yY
-עבודות איכות 5️⃣
-https://chat.whatsapp.com/JzYMWQl49ZF2yMtcVBOxky
-עבודות איכות 6️⃣
-https://chat.whatsapp.com/JZQXNJdpglqIqkxgNjZS24
-עבודות איכות7️⃣
-https://chat.whatsapp.com/LJakBnm31Xj4Mw2wRfvh5S
-עבודות איכות8️⃣
-https://chat.whatsapp.com/FTGTbEQMlF7AweE49Mb6F0
+[עבודות איכות 1️⃣](https://chat.whatsapp.com/G5lXigoIFxP1kCn7jEunW1)
+[עבודות איכות 2️⃣](https://chat.whatsapp.com/KIgm78DCTNkBE8aSCUtl6p)
+[עבודות איכות 3️⃣](https://chat.whatsapp.com/GjibtdlgfFf23rZrILGgZu)
+[עבודות איכות 4️⃣](https://chat.whatsapp.com/FJk1nqsRjmFBkEdcuFV9yY)
+[עבודות איכות 5️⃣](https://chat.whatsapp.com/JzYMWQl49ZF2yMtcVBOxky)
+[עבודות איכות 6️⃣](https://chat.whatsapp.com/JZQXNJdpglqIqkxgNjZS24)
+[עבודות איכות7️⃣](https://chat.whatsapp.com/LJakBnm31Xj4Mw2wRfvh5S)
+[עבודות איכות8️⃣](https://chat.whatsapp.com/FTGTbEQMlF7AweE49Mb6F0)
 
 *אין להצטרף ליותר מערוץ אחד ברשימה זו!*",
 'parse_mode' => 'Markdown',
@@ -352,7 +334,7 @@ bot('deleteMessage',[
    
 
 
-if($text && $text != "/start, /משתמשים, הודעה למשתמשים"){
+if($text && $text != "/start"){
 bot('sendmessage', [
 'chat_id' => $chat_id,
 'text' => "
@@ -370,6 +352,49 @@ bot('sendmessage', [
 ]
 ])
 ]);
-}    
+}
+
+
+if($text && $text != "הודעה למשתמשים"){
+bot('sendmessage', [
+'chat_id' => $chat_id,
+'text' => "
+זהו בוט הצטרפות לקבוצות מבית *מה שמעניין* בלבד
+אם קיבלתם הודעה זו ככל הנראה ששלחתם בקשה שאינה קיימת בבוט
+
+או שלח/י שוב /start",
+'reply_to_message_id'=>$message_id,
+'parse_mode' => "MarkDown",
+'reply_markup'=>json_encode([
+      'inline_keyboard'=>[
+[
+['text'=>'👨‍💼 לפניה למנהלים 👨‍💼' , 'url'=>"$Grup3"],
+         ],
+]
+])
+]);
+}
+
+if($text && $text != "/משתמשים"){
+bot('sendmessage', [
+'chat_id' => $chat_id,
+'text' => "
+זהו בוט הצטרפות לקבוצות מבית *מה שמעניין* בלבד
+אם קיבלתם הודעה זו ככל הנראה ששלחתם בקשה שאינה קיימת בבוט
+
+או שלח/י שוב /start",
+'reply_to_message_id'=>$message_id,
+'parse_mode' => "MarkDown",
+'reply_markup'=>json_encode([
+      'inline_keyboard'=>[
+[
+['text'=>'👨‍💼 לפניה למנהלים 👨‍💼' , 'url'=>"$Grup3"],
+         ],
+]
+])
+]);
+}
+
+    
 
 ?>
