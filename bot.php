@@ -29,53 +29,6 @@ $iid = $message->from->id;
 $data = $update->callback_query->data;
 $chat_id2 = $update->callback_query->message->chat->id;
 $message_id = $update->callback_query->message->message_id;
-$member = file_get_contents("data/$from_id/member.txt");
-$number = file_get_contents("data/$from_id/number.txt");
-$message_id = $update->message->message_id;
-$callID = $update->callback_query->id;
-//קישור לערוץ
-$Grup = "https://t.me/joinchat/T2-OVTCnadgUAl1i";
-//קישור לקבוצה
-$Grup2 = "https://t.me/joinchat/O8DjIDRlrR5mZGNk";
-//קישור ליצרת קשר
-$Grup3 = "http://t.me/Ma_semeyanen_bot";
-
-
-
-if($data == "on"){
-bot("answerCallbackQuery",[
-"callback_query_id"=>$callID,
-//אם אפשר רק להשאיר תקרדיט 
-//אפשר להוסיף גם את שלכם תודה.
-'text'=>"בוט זה נוצר על ידי מנהלי מה שמעניין",
-  'show_alert' => true,
-]);
-}
-
-
-
-$ch = curl_init();
-curl_setopt($ch,CURLOPT_URL,$url);
-curl_setopt($ch,CURLOPT_RETURNTRANSFER,true);
-curl_setopt($ch,CURLOPT_POSTFIELDS,$datas);
-$res = curl_exec($ch);
-if(curl_error($ch)){
-    var_dump(curl_error($ch));
-}else{
-    return json_decode($res);
-   }
-
-}
-$update = json_decode(file_get_contents('php://input'));
-$message = $update->message;
-$text = $message->text;
-$chat_id = $message->chat->id;
-$mid = $message->message_id;
-$name = $message->from->first_name;
-$iid = $message->from->id;
-$data = $update->callback_query->data;
-$chat_id2 = $update->callback_query->message->chat->id;
-$message_id = $update->callback_query->message->message_id;
 
 
 
