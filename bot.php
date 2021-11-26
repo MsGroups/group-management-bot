@@ -263,9 +263,9 @@ bot('editMessageText',[
 
 [עבודות איכות 6️⃣](https://chat.whatsapp.com/JZQXNJdpglqIqkxgNjZS24)
 
-[עבודות איכות7️⃣](https://chat.whatsapp.com/LJakBnm31Xj4Mw2wRfvh5S)
+[עבודות איכות 7️⃣](https://chat.whatsapp.com/LJakBnm31Xj4Mw2wRfvh5S)
 
-[עבודות איכות8️⃣](https://chat.whatsapp.com/FTGTbEQMlF7AweE49Mb6F0)
+[עבודות איכות 8️⃣](https://chat.whatsapp.com/FTGTbEQMlF7AweE49Mb6F0)
 
 *אין להצטרף ליותר מערוץ אחד ברשימה זו!*",
 'parse_mode' => 'Markdown',
