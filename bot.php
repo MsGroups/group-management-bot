@@ -91,23 +91,6 @@ bot('sendmessage', [
 ]);
 }
 
-$ch = curl_init();
-curl_setopt($ch,CURLOPT_URL,$url);
-curl_setopt($ch,CURLOPT_RETURNTRANSFER,true);
-curl_setopt($ch,CURLOPT_POSTFIELDS,$datas);
-$res = curl_exec($ch);
-if(curl_error($ch)){
-    var_dump(curl_error($ch));
-}else{
-    return json_decode($res);
-   }
-$update = json_decode(file_get_contents('php://input'));
-$message = $update->message;
-$text = $message->text;
-$chat_id = $message->chat->id;
-$mid = $message->message_id;
-$name = $message->from->first_name;
-$iid = $message->from->id;
 $data = $update->callback_query->data;
 $chat_id2 = $update->callback_query->message->chat->id;
 $message_id = $update->callback_query->message->message_id;
@@ -232,14 +215,19 @@ bot('editMessageText',[
 'chat_id'=>$chat_id2,
 'message_id'=>$message_id,
 'text'=>"*מה שמעניין - חדשות*
-〽️ה שמ➰ניין - חדשות🎙️1️⃣
-https://chat.whatsapp.com/Bo0iKaagk4ZKpjIEAun4pN
-〽️ה שמ➰ניין - חדשות🎙️2️⃣
-https://chat.whatsapp.com/Hd5b3ekMgmB5Jb7rMzoYrJ
-〽️ה שמ➰ניין - חדשות🎙️3️⃣
-https://chat.whatsapp.com/DUwaLOblYBw0iNtpw0lidC
-〽️ה שמ➰ניין - חדשות🎙️4️⃣
-https://chat.whatsapp.com/J5bHeXMgw4N9gekr1fqu1T",
+[〽️ה שמ➰ניין - חדשות🎙️1️⃣]
+(https://chat.whatsapp.com/Bo0iKaagk4ZKpjIEAun4pN)
+
+[〽️ה שמ➰ניין - חדשות🎙️2️⃣]
+(https://chat.whatsapp.com/Hd5b3ekMgmB5Jb7rMzoYrJ)
+
+[〽️ה שמ➰ניין - חדשות🎙️3️⃣]
+(https://chat.whatsapp.com/DUwaLOblYBw0iNtpw0lidC)
+
+[〽️ה שמ➰ניין - חדשות🎙️4️⃣]
+(https://chat.whatsapp.com/J5bHeXMgw4N9gekr1fqu1T)
+
+*אין להצטרף ליותר מערוץ אחד ברשימה זו!*",
 'reply_markup'=>json_encode([
       'inline_keyboard'=>[
        [
