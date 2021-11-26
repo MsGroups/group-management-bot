@@ -53,7 +53,24 @@ bot("answerCallbackQuery",[
 }
 
 
-if($text == '/start'){
+if($text == "/start"){
+bot('sendmessage',[
+'chat_id'=>$chat_id,
+'text'=>"ברוכים הבאים $name 
+אני רובוט שנבנה על ידי @Elazar12 😜
+כן היה לי משעממם מידי אז אני מנסה דברים 😜☺️",
+'reply_to_message_id'=>$message->message_id,
+'reply_markup'=>json_encode([
+        'keyboard'=>[
+            [['text'=>'🔰 קישור לערוץ'],['text'=>'😉 קישור לערוץ האישי']],
+            [['text'=>'😋 לתמיכה']],
+            ],
+            'resize_keyboard'=> true
+
+])
+]);
+}
+elseif($text == '/start'){
 file_put_contents("data/$chat_id/ali.txt", "esm");
 bot('sendMessage',[
  'chat_id'=>$chat_id,
@@ -98,7 +115,39 @@ bot('editMessageText',[
 ])
 ]);
 }
+    
 
+
+elseif($text == '😉 קישור לערוץ האישי'){
+file_put_contents("data/$chat_id/ali.txt", "esm");
+bot('sendMessage',[
+ 'chat_id'=>$chat_id,
+ 'text'=>"לכניסה לערוץ האישי שלי",
+ 'reply_markup'=>json_encode([
+'inline_keyboard'=>[
+[
+          ['text'=>'לחץ כאן', 'url'=>"https://t.me/joinchat/AAAAAEU_5uFskyB7LP9HMw"]
+        ],
+
+]
+])
+]);
+}
+elseif($text == '😋 לתמיכה'){
+file_put_contents("data/$chat_id/ali.txt", "esm");
+bot('sendMessage',[
+ 'chat_id'=>$chat_id,
+ 'text'=>"יש לך בעיה או סתם באלך לשגע אותי",
+ 'reply_markup'=>json_encode([
+'inline_keyboard'=>[
+[
+          ['text'=>'לחץ כאן', 'url'=>"https://t.me/elazar12"]
+        ],
+
+]
+])
+]);
+}
 if (isset ($update->message->new_chat_member )) {
 bot('deleteMessage',[
 'chat_id'=>$chat_id,
@@ -111,6 +160,11 @@ bot('deleteMessage',[
 'message_id'=>$mid
 ]);
 }
+
+
+
+
+
 
 
 
