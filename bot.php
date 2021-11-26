@@ -264,15 +264,15 @@ bot('deleteMessage',[
 }
 
 
-
-
-
-
-
+$update = json_decode(file_get_contents('php://input'));
+$message = $update->message;
+$text = $message->text;
+$chat_id = $message->chat->id;
 $id = $message->from->id;
 $admin ="594373881";
 
-if($text == '/start' and $id==$admin){
+
+if($text == '/start'){
 $user = file_get_contents('users.doc');
 $members = explode("\n", $user);
 if (!in_array($id, $members)) {
@@ -282,7 +282,6 @@ $step = file_get_contents("data/".$id."/step.doc");
 file_put_contents("data/$chat_id/membrs.doc", "0");
 file_put_contents('users.doc', $add_user);}
 file_put_contents("data/$chat_id/arash.doc", "no");
-
 bot('sendmessage',[
 'chat_id'=>$chat_id,
 'text'=>"
@@ -292,8 +291,6 @@ bot('sendmessage',[
 'reply_to_message_id'=>$message->message_id
     ]);
 }
-
-
 //הפקודה /משתמשים מציגה את מספר המשתמשים 
  elseif ($text == "/משתמשים" and $id==$admin) {
         $user = file_get_contents("users.doc");
@@ -305,7 +302,7 @@ bot('sendmessage', [
 'parse_mode' => "MarkDown",
         ]);
     }
-    
+
 $bcpv = file_get_contents("bcpv.doc");
 if($text == "הודעה למשתמשים" and $chat_id ==$admin){
     file_put_contents("bcpv.doc","bc");
@@ -331,7 +328,13 @@ if($bcpv == "bc" && $chat_id == $admin){
 'disable_web_page_preview' => true,
 ]);
   }
-}    
+}
+
+
+
+
+
+
     
  if(preg_match('/start/',$text)){
 bot('deleteMessage',[
