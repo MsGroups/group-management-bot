@@ -3,7 +3,7 @@
 
 ob_start(); 
 //לשים תטוקן של הבוט שלכם
-$API_KEY =  "1709546567:AAH2eak8uYXCuEiEShu8qc5c0QfCd9ZVBTg";
+$API_KEY =  "1634057971:AAGJDnBerl4hwSkH5SpQ9pib2_rOxPVpueM";
 define('API_KEY', $API_KEY);
 function bot($method,$datas=[]){
  $url = "https://api.telegram.org/bot".API_KEY."/".$method; 
@@ -237,8 +237,9 @@ if($data == "D"){
 bot('editMessageText',[
 'chat_id'=>$chat_id2,
 'message_id'=>$message_id,
-'text'=>"עיתונים
-https://chat.whatsapp.com/JgFKB7Qwl3G1kQkWU6XPTF",
+'text'=>"[עיתונים](https://chat.whatsapp.com/JgFKB7Qwl3G1kQkWU6XPTF)",
+'parse_mode' => 'Markdown',
+'disable_web_page_preview' => true,
 'reply_markup'=>json_encode([
       'inline_keyboard'=>[
        [
