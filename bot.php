@@ -166,6 +166,8 @@ https://chat.whatsapp.com/IMCmicCh2uQ7aYAmlM2NKC
 https://chat.whatsapp.com/D3uMpFviijNCJuBv04NufC
 
 *אין להצטרף ליותר מערוץ אחד ברשימה זו!*",
+'parse_mode' => 'Markdown',
+'disable_web_page_preview' => true,
 'reply_markup'=>json_encode([
       'inline_keyboard'=>[
        [
@@ -201,6 +203,8 @@ https://chat.whatsapp.com/LJakBnm31Xj4Mw2wRfvh5S
 https://chat.whatsapp.com/FTGTbEQMlF7AweE49Mb6F0
 
 *אין להצטרף ליותר מערוץ אחד ברשימה זו!*",
+'parse_mode' => 'Markdown',
+'disable_web_page_preview' => true,
 'reply_markup'=>json_encode([
       'inline_keyboard'=>[
        [
@@ -224,6 +228,8 @@ bot('editMessageText',[
 [〽️ה שמ➰ניין - חדשות🎙️4️⃣](https://chat.whatsapp.com/J5bHeXMgw4N9gekr1fqu1T)
 
 *אין להצטרף ליותר מערוץ אחד ברשימה זו!*",
+'parse_mode' => 'Markdown',
+'disable_web_page_preview' => true,
 'reply_markup'=>json_encode([
       'inline_keyboard'=>[
        [
@@ -237,7 +243,7 @@ if($data == "D"){
 bot('editMessageText',[
 'chat_id'=>$chat_id2,
 'message_id'=>$message_id,
-'text'=>"[עיתונים](https://chat.whatsapp.com/JgFKB7Qwl3G1kQkWU6XPTF)",
+'text'=>"[לחץ/י כאן כדי להצטרף ל-עיתונים](https://chat.whatsapp.com/JgFKB7Qwl3G1kQkWU6XPTF)",
 'parse_mode' => 'Markdown',
 'disable_web_page_preview' => true,
 'reply_markup'=>json_encode([
@@ -346,7 +352,7 @@ bot('deleteMessage',[
    
 
 
-if($text && $text != "/start"){
+if($text && $text != "/start, /משתמשים, הודעה למשתמשים"){
 bot('sendmessage', [
 'chat_id' => $chat_id,
 'text' => "
