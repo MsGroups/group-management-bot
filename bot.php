@@ -122,7 +122,7 @@ if($bcpv == "bc" && $chat_id == $admin){
 
 
 if($text == "/start"){
-sleep(2);
+sleep(1);
 bot('sendmessage', [
 'chat_id' => $chat_id,
 'text' => "היי $name
@@ -165,7 +165,7 @@ $message_id = $update->callback_query->message->message_id;
 
 if($text == '/start'){
 file_put_contents("data/$chat_id/ali.txt", "esm");
-sleep(4);
+sleep(2);
 bot('sendMessage',[
  'chat_id'=>$chat_id,
  'text'=>"⬇️לרשימת קבוצות הווצאפ שלנו⬇️",
