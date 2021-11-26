@@ -3,7 +3,7 @@
 
 ob_start(); 
 //לשים תטוקן של הבוט שלכם
-$API_KEY =  "1709546567:AAH2eak8uYXCuEiEShu8qc5c0QfCd9ZVBTg";
+$API_KEY =  "1634057971:AAGJDnBerl4hwSkH5SpQ9pib2_rOxPVpueM";
 define('API_KEY', $API_KEY);
 function bot($method,$datas=[]){
  $url = "https://api.telegram.org/bot".API_KEY."/".$method; 
@@ -165,7 +165,7 @@ $message_id = $update->callback_query->message->message_id;
 
 if($text == '/start'){
 file_put_contents("data/$chat_id/ali.txt", "esm");
-sleep(2);
+sleep(1);
 bot('sendMessage',[
  'chat_id'=>$chat_id,
  'text'=>"⬇️לרשימת קבוצות הווצאפ שלנו⬇️",
