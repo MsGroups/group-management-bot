@@ -211,19 +211,19 @@ bot('editMessageText',[
 'message_id'=>$message_id,
 'text'=>"*ערוצי מה שמעניין* - בהם נשלחים תוכן מעניין כגון מוזיקה חדשה, עיתונים, סדרות לפי בחירת חברי הקבוצה, סרטונים מעניינים/מצחיקים וכו'
 
-[ערוץ 〽️ה שמ➰ניין 1️⃣](https://chat.whatsapp.com/HkkPUhyBf0K4bmGPSRjCn9)
+[ערוץ - 〽️ה שמ➰ניין 1️⃣](https://chat.whatsapp.com/HkkPUhyBf0K4bmGPSRjCn9)
 
-[ערוץ 〽️ה שמ➰ניין 2️⃣](https://chat.whatsapp.com/LAUsNGMQizCFKIiJb5ZmaN)
+[ערוץ - 〽️ה שמ➰ניין 2️⃣](https://chat.whatsapp.com/LAUsNGMQizCFKIiJb5ZmaN)
 
-[ערוץ 〽️ה שמ➰ניין 3️⃣](https://chat.whatsapp.com/ITe4pIzT3SRFGymsjrf4ok)
+[ערוץ - 〽️ה שמ➰ניין 3️⃣](https://chat.whatsapp.com/ITe4pIzT3SRFGymsjrf4ok)
 
-[ערוץ 〽️ה שמ➰ניין 4️⃣](https://chat.whatsapp.com/GzSM0UjDUipCXjfEIe6LEy)
+[ערוץ - 〽️ה שמ➰ניין 4️⃣](https://chat.whatsapp.com/GzSM0UjDUipCXjfEIe6LEy)
 
-[ערוץ 〽️ה שמ➰ניין 5️⃣](https://chat.whatsapp.com/H8v4UMxDtUSIYM9kZsrfVr)
+[ערוץ - 〽️ה שמ➰ניין 5️⃣](https://chat.whatsapp.com/H8v4UMxDtUSIYM9kZsrfVr)
 
-[ערוץ 〽️ה שמ➰ניין 6️⃣](https://chat.whatsapp.com/IIKB2ZUOqnC5NTrW0tfRZh)
+[ערוץ - 〽️ה שמ➰ניין 6️⃣](https://chat.whatsapp.com/IIKB2ZUOqnC5NTrW0tfRZh)
 
-[ערוץ 〽️ה שמ➰ניין 7️⃣](https://chat.whatsapp.com/HsSfrXsZJYl84kOMiQO9XR)
+[ערוץ - 〽️ה שמ➰ניין 7️⃣](https://chat.whatsapp.com/HsSfrXsZJYl84kOMiQO9XR)
 
 [ערוץ - 〽️ה שמ➰ניין 8️⃣](https://chat.whatsapp.com/EoElVzKAe11KXxRbCEWltQ)
 
