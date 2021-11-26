@@ -53,41 +53,6 @@ bot("answerCallbackQuery",[
 }
 
 
-if ($text == '/start') {
-    $text = [
-        'chat_id' => $id,
-        'text' => 'قصد خرید کدام پلن را دارید؟',
-        'parse_mode' => 'html',
-        'reply_markup' => json_encode([
-            'inline_keyboard' => [
-                [
-                    [
-                        'text' => 'وی‌پی‌ان ۱ ماهه',
-                        'callback_data' => 1
-                    ],
-                    [
-                        'text' => 'وی‌پی‌ان ۳ ماهه',
-                        'callback_data' => 3
-                    ],
-                ], [
-                    [
-                        'text' => 'وی‌پی‌ان ۶ ماهه',
-                        'callback_data' => 6
-                    ],
-                    [
-                        'text' => 'وی‌پی‌ان ۱۲ ماهه',
-                        'callback_data' => 12
-                    ]
-                ],
-                [
-                    [
-                        'text' => 'اطلاع از قیمت‌ها',
-                        'callback_data' => 13
-                    ],
-                ]
-            ]
-        ])
-    ];
 
 
 
